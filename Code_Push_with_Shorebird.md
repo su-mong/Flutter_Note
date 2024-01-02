@@ -22,28 +22,41 @@ ex) 만약 1달에 방문하는 유저 수가 140명이고, 매달 2번에 패�
 
 
 # Shorebird, 설치부터 첫 적용까지
-1  [https://console.shorebird.dev/login](https://console.shorebird.dev/login)  에 들어가서 계정을 만듭니다.
-2 로그인하고, 약관에 동의하면, 아래와 같은 화면이 나옵니다. 절차에 맞게 쭈욱~ 따라가시면 됩니다. 다만 이렇게만 해두고 설치 부분을 끝내면 심심하니, 현재(2023.11.20) 기준 설치법을 아래에 적겠습니다.
-3 Shorebird CLI를 설치합니다. 터미널을 열고, 아래 명령어를 입력합니다.
-	* **MacOS/Linux**
-`curl —proto ‘=https’ —tlsv1.2 <https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh> -sSf | bash` 
-	* **Windows** (PowerShell에서 실행)
-`Set-ExecutionPolicy RemoteSigned -scope CurrentUser # Needed to execute remote scripts`
-`iwr -UseBasicParsing ‘<https://raw.githubusercontent.com/shorebirdtech/install/main/install.ps1'|iex>`
-
-4 로그인합니다.
-`shorebird login`
-5 Shorebird를 적용할 Flutter 프로젝트로 가서, init 명령어를 실행합니다.
-`shorebird init`
-실행 후, 프로젝트 폴더 내부에 shorebird.yaml 파일이 생겼다면 성공!
+1. [https://console.shorebird.dev/login](https://console.shorebird.dev/login)에 들어가서 계정을 만듭니다.
+2. 로그인하고, 약관에 동의하면, 아래와 같은 화면이 나옵니다. 절차에 맞게 쭈욱~ 따라가시면 됩니다. 다만 이렇게만 해두고 설치 부분을 끝내면 심심하니, 현재(2023.11.20) 기준 설치법을 아래에 적겠습니다.
+3. Shorebird CLI를 설치합니다. 터미널을 열고, 아래 명령어를 입력합니다.
+  - **MacOS/Linux**
+```
+curl —proto ‘=https’ —tlsv1.2 <https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh> -sSf | bash
+```
+  - **Windows** (PowerShell에서 실행)
+```
+Set-ExecutionPolicy RemoteSigned -scope CurrentUser # Needed to execute remote scripts
+iwr -UseBasicParsing ‘<https://raw.githubusercontent.com/shorebirdtech/install/main/install.ps1'|iex>
+```
+4. 로그인합니다.
+```
+shorebird login
+```
+6. Shorebird를 적용할 Flutter 프로젝트로 가서, init 명령어를 실행합니다.
+```
+shorebird init
+```
+  - 실행 후, 프로젝트 폴더 내부에 shorebird.yaml 파일이 생겼다면 성공!
 	* 위 명령어 실행 시, 안드로이드 프로젝트에 INTERNET permission이 없다면 자동으로 추가됩니다. 만약 자동으로 추가가 되지 않는다면, android_app_src_main_AndroidManifest.xml에 INTERNET uses-permission을 아래처럼 넣으시면 됩니다.
-`<manifest …>`
-`<uses-permission android:name=“android.permission.INTERNET” />`
-`…`
-`</manifest>`
-	* 중간에 아래와 같은 메세지가 나올 수 있습니다. 이 경우, 플러터 버전이 맞지 않는 것이니 플러터를 최신 버전으로 올릴 것을 권장드립니다! (Shorebird 공식 문서에 따르면, Flutter 최신 버전에서는 잘 동작하지만, Flutter 이전 버전에서는 오류가 발생할 수 있다고 합니다. 따라서 Flutter 버전을 올린 후 Shorebird를 사용할 것을 권장하고 있습니다.) 참고로 Flutter 최신 버전으로 올리는 명령어는 `flutter upgrade` 입니다.
-`✗ Flutter install is correct (0.0s)`
-` [!] The version of Flutter that Shorebird includes and the Flutter on your path are different.`
 
-6 첫 release 버전을 만듭니다. 명령어는 아래와 같습니다.
-`shorebird release android`
+```
+<manifest …>
+<uses-permission android:name=“android.permission.INTERNET” />
+…
+</manifest>
+```
+  - 중간에 아래와 같은 메세지가 나올 수 있습니다. 이 경우, 플러터 버전이 맞지 않는 것이니 플러터를 최신 버전으로 올릴 것을 권장드립니다! (Shorebird 공식 문서에 따르면, Flutter 최신 버전에서는 잘 동작하지만, Flutter 이전 버전에서는 오류가 발생할 수 있다고 합니다. 따라서 Flutter 버전을 올린 후 Shorebird를 사용할 것을 권장하고 있습니다.) 참고로 Flutter 최신 버전으로 올리는 명령어는 `flutter upgrade` 입니다.
+```
+✗ Flutter install is correct (0.0s)
+[!] The version of Flutter that Shorebird includes and the Flutter on your path are different.
+```
+6. 첫 release 버전을 만듭니다. 명령어는 아래와 같습니다.
+```
+shorebird release android
+```
